@@ -1,0 +1,285 @@
+##############################
+#	Need Software
+#############################
+# Esetroot
+# trayer
+# fcitx
+# wmCalClock
+# rxvt-unicode
+# claws-mail
+# rox-filer
+# ulipad
+# google-chrome
+# foxitreader
+# vmware-workstation
+# smplayer
+# xlock
+# psi
+# ncmpcpp
+
+#====================================
+#---- Paths
+#====================================
+
+#SetEnv fvwm_img $[FVWM_USERDIR]/images
+#SetEnv fvwm_icon $[FVWM_USERDIR]/icons
+#SetEnv fvwm_scrpt $./scripts
+#SetEnv fvwm_wallpapers $[FVWM_USERDIR]/wallpaper
+#SetEnv fvwm_tmp $[FVWM_USERDIR]/tmp
+
+##  Desktop backgrounds
+
+#*FvwmBacker: Command (Desk 0, Page 0 0) Exec fvwm-root \
+home/mafia/downloads/lol.png
+
+
+####Icons####
+ImagePath			+:/home/yue/.fvwm/Icons
+
+###Desk######
+DeskTopSize			3x3
+
+####EdgeScroll####
+EdgeScroll          100 100 
+
+###SnapAttraction####
+SnapAttraction		10
+
+#################
+#EwmhBaseStruts 		0 0 22 42
+
+####StartFunction####
+DestroyFunc			StartFunction
+AddToFunc 			StartFunction
++ I Module			FvwmPager *
++ I Module			FvwmAuto 500 Raise Nop
++ I Module			FvwmAnimate
++ I Module			FvwmButtons IconMenu
++ I Module			FvwmButtons MyDock
++ I Exec			exec xset s 10800
++ I Exec			exec Esetroot -fit /home/yue/.fvwm/backgrounds/wall_01.jpg
++ I Exec 			exec trayer --edge top --align right --transparent true --height 20 --alpha 120 --tint black --widthtype request --heighttype request --SetDockType true --SetPartialStrut false --expand true
++ I Exec			exec fcitx
+
+*FvwmPager:			Geometry +1150+695
+*FvwmPager:			Colorset * 23
+*FvwmPager: 			HilightColorset * 6
+*FvwmPagerLabel			0 Desktop
+
+*FvwmAnimate:			Delay 25
+*FvwmAnimate:			Effect Random
+*FvwmAnimate:			Width 3
+
+####Icon Menu####
+Style               "IconMenu" !Title, !Handles, Sticky, WindowListSkip,CirculateSkip, BorderWidth 0, HandleWidth 0
+DestroyModuleConfig         IconMenu: *
+*IconMenu:			Colorset 23
+*IconMenu:			Frame 0
+*IconMenu:			Font	5x8
+*IconMenu:			Geometry +0+300
+*IconMenu:			Columns		2
+*IconMenu:			ActiveColorset 6
+*IconMenu(, Icon rxvt.png, Action 'Exec urxvt &')
+*IconMenu(, Icon google-chrome.png, Action 'Exec google-chrome &')
+*IconMenu(, Icon firefox_22x22.png, Action 'Exec firefox-bin &')
+*IconMenu(, Icon claws-mail.png, Action 'Exec claws-mail &')
+*IconMenu(, Icon smplayer.png, Action 'Exec smplayer &')
+*IconMenu(, Icon rox-filer.png, Action 'Exec rox-filer &')
+*IconMenu(, Icon ulipad.png, Action 'Exec ulipad &')
+*IconMenu(, Icon FoxitReader.png, Action 'Exec foxitreader &')
+*IconMenu(, Icon vmware-workstation.png, Action 'Exec vmware &')
+*IconMenu(, Icon psi.png, Action 'Exec psi &')
+
+
+####wmCalClock####
+Style 				"MyDock" !Title, !Handles, Sticky, WindowListSkip,CirculateSkip, BorderWidth 0, HandleWidth 0
+DestroyModuleConfig 		MyDock: *
+*MyDock: 			ButtonGeometry 64x64+0+0
+*MyDock: 			Columns 1
+*MyDock: 			Colorset 23
+*MyDock: 			Frame 0
+*MyDock: 			(Frame 0 ,Swallow "wmCalClock" 'Exec wmCalClock -24 -b 100') 
+#*MyDock: 			(Frame 0 ,Swallow "wmitime" 'Exec wmitime') 
+#*MyDock: 			Frame 0
+#*MyDock: 			(Frame 0 ,Swallow "wmacpi" 'Exec wmacpi -w') 
+#*MyDock: 			Frame 0
+#*MyDock: 			(Frame 0 ,Swallow "wmsorsen" 'Exec wmsorsen -r') 
+#*MyDock: 			Frame 0
+#*MyDock: 			(Frame 0 ,Swallow "wmmisc" 'Exec wmmisc') 
+
+
+####InitFunction####
+DestroyFunc 			InitFunction
+AddToFunc 			InitFunction
+
+####ExitFunction####
+DestroyFunc			ExitFunction
+AddToFunc			ExitFunction
++ I Exec            exec killall FvwmPager
++ I Exec            exec killall FvwmAuto
++ I Exec            exec killall FvwmAnimate
++ I Exec            exec killall FvwmButtons
++ I Exec			exec killall trayer
++ I Exec			exec killall wmCalClock
++ I Exec			exec killall fcitx
+#+ I Exec			exec killall wmacpi
+#+ I Exec			exec killall wmmisc
+#+ I Exec			exec killall wmitime
+#+ I Exec			exec killall wmsorsen
+
+####RootMenu####
+DestroyMenu			RootMenu
+AddToMenu			RootMenu "RootMenu" Title
++ "&1.URxvt%xterm-terminal_16x16.png%"	Exec exec urxvt 
++ ""				Nop
++ "&2.Application"		Popup ApplicationMenu
++ ""				Nop
++ "&L.Lock fvwm"		Exec exec xlock
++ "&R.Restart fvwm"		Restart
++ "&X.Exit fvwm"		Quit
+
+AddToMenu			ApplicationMenu "Application" Title
++ "&1.Internet"			Popup InternetMenu
++ "&2.Office"			Popup OfficeMenu
++ "&3.Development"		Popup DevelopmentMenu
++ "&4.Utility"			Popup UtilityMenu
++ "&5.Graphics"			Popup GraphicsMenu
++ "&6.System"			Popup SystemMenu
++ "&7.AudioVideo"		Popup AudioVideoMenu
+
+AddToMenu			InternetMenu "Internet" Title
++ "&1.Chrome"		Exec exec google-chrome
++ "&2.Firefox"		Exec exec firefox
+
+AddToMenu			OfficeMenu "Office" Title
++ "&1.LibreOffice"  Exec exec libreoffice
+
+AddToMenu			DevelopmentMenu "Development" Title
++ "&1.Ulipad"  Exec exec ulipad
+
+AddToMenu			UtilityMenu "Utility" Title
+
+AddToMenu			GraphicsMenu "Graphics" Title
+
+AddToMenu			SystemMenu "System" Title
++ "&1.Rox-filer"		Exec exec rox-filer
+
+AddToMenu			AudioVideoMenu "AudioVideo" Title
++ "&1.SMPlayer"			Exec exec smplayer
+
+#Mouse 1 R       A       	Nop
+Mouse 1	R 	A		Menu RootMenu Nop
+
+######
+## MenuStyle
+##########
+MenuStyle *			MWM
+
+
+#####
+## Window Colorsets
+############
+Colorset 3 fg #101060, bg #e6e7d7
+Colorset 4 fg Black, bg #a6a797
+Colorset 5 fg White, bg Red
+Colorset 7 fg White, bg Black
+Colorset 6 fg white, bg black, RootTransparent, Tint Black 40
+Colorset 23 RootTransparent buffer, fg rgb:ff/ff/c4, bg average, Tint black 20, bgTint black 20
+
+
+#####
+## Window Decor
+############
+DestroyDecor MyDecor
+AddToDecor   MyDecor
++ TitleStyle LeftJustified Height 14
++ ButtonStyle 1 ActiveUp Vector 4 30x30@3 60x60@3 60x30@4 30x60@3 -- Flat
++ ButtonStyle 1 ActiveDown Vector 4 30x30@3 60x60@3 60x30@4 30x60@3 -- Flat
++ ButtonStyle 1 Inactive Vector 4 30x30@3 60x60@3 60x30@4 30x60@3 -- Flat
++ ButtonStyle 4 ActiveUp Vector 5 30x60@3 60x60@3 60x50@3 30x50@3 30x60@3 -- Flat
++ ButtonStyle 4 ActiveDown Vector 5 30x60@3 60x60@3 60x50@3 30x50@3 30x60@3 -- Flat
++ ButtonStyle 4 Inactive Vector 5 30x60@3 60x60@3 60x50@3 30x50@3 30x60@3 -- Flat
++ ButtonStyle 2 ActiveUp Vector 7 30x30@3 30x60@3 60x60@3 60x30@3 30x30@3 30x35@3 60x35@3 -- Flat
++ ButtonStyle 2 ActiveDown Vector 7 30x30@3 30x60@3 60x60@3 60x30@3 30x30@3 30x35@3 60x35@3 -- Flat
++ ButtonStyle 2 Inactive Vector 7 30x30@3 30x60@3 60x60@3 60x30@3 30x30@3 30x35@3 60x35@3 -- Flat
++ TitleStyle -- Flat
++ BorderStyle Simple -- NoInset Flat
++ ButtonStyle All -- UseTitleStyle
+
+#####
+## Window Styles
+############
+Style "*" 				UseDecor MyDecor
+Style "*" 				Font "xft:Sans:Bold:size=8:minspace=False:antialias=True"
+Style "*" 				BorderWidth 0, HandleWidth 2
+Style "*" 				MWMBorder, FirmBorder
+Style "*" 				Colorset 4
+Style "*" 				HilightColorset 3
+Style "*" 				BorderColorset 4
+Style "*" 				HilightBorderColorset 5
+Style "*"				FocusFollowsMouse
+Style "*"				TileCascadePlacement
+Style "*"				IconBox 50 1050 1050 +15
+Style "*"				StickyIcon
+Style "FvwmButtons"		NoTitle,WindowListSkip,Sticky,HandleWidth 0,Layer 1
+Style "Desktop"			NoTitle,WindowListSkip,Sticky,HandleWidth 0
+Style "wmCalClock"		Notitle,WindowListSkip
+Style "URxvt"			Icon xterm-terminal_48x48.png
+Style "trayer"			!Title, !Borders, Sticky
+
+##widows close,max,mini##
+Mouse 1 4	A		Iconify
+Mouse 1 2 	A		Maximize-Func2
+Mouse 1 1	A		Close
+
+DestroyFunc			Maximize-Func2
+AddToFunc			Maximize-Func2
++ "C" Maximize			100 100
+
+####Alt+Tab windowlist####
+Key Tab A M WindowList Root c c CurrentAtEnd, IconifiedAtEnd
+
+####shutkey####
+Key z W	CM			Move 0 0
+Key r A	CM			Restart
+Key l A CM			Exec exec xlock
+key h W CM			TopHalfMix
+key v W CM			LeftHalfMix
+key f W CM			FullScreen
+
+key 1 A M			GoToPage 0 0
+key 2 A M			GoToPage 1 0
+key 3 A M           GoToPage 2 0
+key 4 A M           GoToPage 0 1
+key 5 A M           GoToPage 1 1
+key 6 A M           GoToPage 2 1
+key 7 A M           GoToPage 0 2
+key 8 A M           GoToPage 1 2
+key 9 A M           GoToPage 2 2
+key t A M			Exec exec urxvt
+key b A M			Exec exec surf www.duckduckgo.com
+key F4 A M			Close
+key m A M			Iconify
+
+
+key 1 W SCM	PointerWindow	MoveToPage 0 0
+key 2 W SCM	PointerWindow	MoveToPage 1 0
+key 3 W SCM	PointerWindow	MoveToPage 2 0
+key 4 W SCM	PointerWindow	MoveToPage 0 1
+key 5 W SCM	PointerWindow	MoveToPage 1 1
+key 6 W SCM	PointerWindow	MoveToPage 2 1
+key 7 W SCM	PointerWindow	MoveToPage 0 2
+key 8 W SCM	PointerWindow	MoveToPage 1 2
+key 9 W SCM	PointerWindow	MoveToPage 2 2
+
+DestroyFunc			TopHalfMix
+AddToFunc			TopHalfMix
++ "I" Maximize			100 50
+
+DestroyFunc                     LeftHalfMix
+AddToFunc                       LeftHalfMix
++ "I" Maximize                  50 100
+
+DestroyFunc			FullScreen
+AddToFunc			FullScreen
++ "I" Maximize			100 100
