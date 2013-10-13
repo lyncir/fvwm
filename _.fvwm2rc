@@ -210,17 +210,17 @@ key 9 W SCM	PointerWindow	MoveToPage 2 2
 
 
 ####Fn key####
-key XF86Explorer			A	N	Exec rox
-key XF86HomePage			A   N   Exec surf www.google.com
-key XF86Calculator			A   N   Exec urxvt -e ipython
-key XF86Tools				A   N   Exec urxvt -e ncmpcpp
-key XF86AudioPrev			A   N   Exec ncmpcpp prev
-key XF86AudioNext			A   N   Exec ncmpcpp next
-key XF86AudioPlay			A   N   Exec ncmpcpp toggle
-key XF86AudioStop			A   N   Exec ncmpcpp stop
-key XF86AudioMute			A   N   Exec amixer -q sset Master toggle
-key	XF86AudioLowerVolume	A	N	Exec amixer -q sset Master 1- unmute
-key XF86AudioRaiseVolume	A	N	Exec amixer -q sset Master 1+ unmute
+key XF86Explorer			A	N	Exec exec rox
+key XF86HomePage			A   N   Exec exec surf www.google.com
+key XF86Calculator			A   N   Exec exec urxvt -e ipython
+key XF86Tools				A   N   Exec exec urxvt -e ncmpcpp
+key XF86AudioPrev			A   N   Exec exec ncmpcpp prev
+key XF86AudioNext			A   N   Exec exec ncmpcpp next
+key XF86AudioPlay			A   N   Exec exec ncmpcpp toggle
+key XF86AudioStop			A   N   Exec exec ncmpcpp stop
+key XF86AudioMute			A   N   Exec exec amixer -q sset Master toggle
+key	XF86AudioLowerVolume	A	N	Exec exec amixer -q sset Master 1- unmute
+key XF86AudioRaiseVolume	A	N	Exec exec amixer -q sset Master 1+ unmute
 
 DestroyFunc			TopHalfMix
 AddToFunc			TopHalfMix
