@@ -26,6 +26,9 @@ SnapAttraction		10
 ####Window Max L,R,T,B#######
 #EwmhBaseStruts 		0 0 22 42
 
+####Window Move style####
+OpaqueMoveSize -1
+
 ####StartFunction####
 DestroyFunc			StartFunction
 AddToFunc 			StartFunction
@@ -41,10 +44,10 @@ AddToFunc 			StartFunction
 + I Exec			exec xcompmgr
 + I Exec			exec claws-mail
 
+*FvwmPagerLabel		0 Desktop
 *FvwmPager:			Geometry +1150+695
 *FvwmPager:			Colorset * 23
 *FvwmPager: 		HilightColorset * 6
-*FvwmPagerLabel		0 Desktop
 
 *FvwmAnimate:		Delay 25
 *FvwmAnimate:		Effect Random
@@ -73,10 +76,6 @@ DestroyModuleConfig MyDock: *
 *MyDock: 			Frame 0
 *MyDock: 			(Frame 0 ,Swallow "wmCalClock" 'Exec wmCalClock -24 -b 100') 
 
-
-####InitFunction####
-DestroyFunc 		InitFunction
-AddToFunc 			InitFunction
 
 ####ExitFunction####
 DestroyFunc			ExitFunction
@@ -233,3 +232,5 @@ AddToFunc                       LeftHalfMix
 DestroyFunc			FullScreen
 AddToFunc			FullScreen
 + "I" Maximize			100 100
+
+
