@@ -1,18 +1,21 @@
 ##############################
 #	Need Software
 #############################
-# Esetroot
+# feh
 # trayer
 # fcitx
 # urxvt
 # claws-mail
 # ncmpcpp
 # xcompmgr
+# wmCalClock
+# netsurf
+# slock
 
 
 
 ####Icon Path####
-ImagePath			+:/home/yue/.fvwm/Icons
+ImagePath			$HOME/.fvwm/Icons:+:/usr/include/X11/bitmaps
 
 ###Desktop Num######
 DeskTopSize			3x3
@@ -38,7 +41,7 @@ AddToFunc 			StartFunction
 + I Module			FvwmButtons IconMenu
 + I Module			FvwmButtons MyDock
 + I Exec			exec xset s 10800
-+ I Exec			exec Esetroot -fit /home/yue/.fvwm/backgrounds/wall_01.jpg
++ I Exec			exec feh --bg-center /home/yue/.fvwm/backgrounds/wall_01.jpg
 + I Exec 			exec trayer --edge top --align right --transparent true --height 20 --alpha 120 --tint black --widthtype request --heighttype request --SetDockType true --SetPartialStrut false --expand true
 + I Exec			exec fcitx
 + I Exec			exec xcompmgr
@@ -233,4 +236,12 @@ DestroyFunc			FullScreen
 AddToFunc			FullScreen
 + "I" Maximize			100 100
 
+####window move/resize####
+##Mouse 	1	W	HM	Move
+DestroyFunc drag-n-move
+AddToFunc drag-n-move M move
+DestroyFunc drag-n-resize
+AddToFunc drag-n-resize M resize
 
+Mouse 1 W HM drag-n-move
+Mouse 3 W HM drag-n-resize 
