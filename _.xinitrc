@@ -1,2 +1,2 @@
 #!/bin/bash
-exec fvwm
+exec fvwm2
