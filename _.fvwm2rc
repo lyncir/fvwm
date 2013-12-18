@@ -11,6 +11,8 @@
 # wmCalClock
 # netsurf
 # slock
+# rox
+# scrot
 
 
 
@@ -87,13 +89,6 @@ AddToFunc			ExitFunction
 + I Exec            exec killall FvwmAuto
 + I Exec            exec killall FvwmAnimate
 + I Exec            exec killall FvwmButtons
-+ I Exec			exec killall trayer
-+ I Exec			exec killall wmCalClock
-+ I Exec			exec killall fcitx
-#+ I Exec			exec killall wmacpi
-#+ I Exec			exec killall wmmisc
-#+ I Exec			exec killall wmitime
-#+ I Exec			exec killall wmsorsen
 
 ####RootMenu####
 DestroyMenu			RootMenu
@@ -196,6 +191,7 @@ key 8 A M           GoToPage 1 2
 key 9 A M           GoToPage 2 2
 key t A M			Exec exec urxvt
 key b A M			Exec exec surf www.duckduckgo.com
+key p A M			Exec exec scrot /tmp/%Y-%m-%d-%T-screenshot.png
 key Escape A M		Close
 key i A M			Iconify
 
