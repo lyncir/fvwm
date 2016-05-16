@@ -43,14 +43,15 @@ AddToFunc 			StartFunction
 + I Module			FvwmButtons IconMenu
 + I Module			FvwmButtons MyDock
 + I Exec			exec xset s 10800
-+ I Exec			exec feh --bg-center $HOME/.fvwm/backgrounds/wall_01.jpg
++ I Exec			exec feh --bg-center $HOME/.fvwm/backgrounds/Keepstarmasstest.jpg
 + I Exec 			exec trayer --edge top --align right --transparent true --height 20 --alpha 120 --tint black --widthtype request --heighttype request --SetDockType true --SetPartialStrut false --expand true
 + I Exec			exec fcitx
 + I Exec			exec xcompmgr
 + I Exec			exec claws-mail
++ I Exec			exec setxkbmap -option "ctrl:swapcaps"
 
 *FvwmPagerLabel		0 Desktop
-*FvwmPager:			Geometry +1150+695
+*FvwmPager:			Geometry +1720+950
 *FvwmPager:			Colorset * 23
 *FvwmPager: 		HilightColorset * 6
 
@@ -70,6 +71,8 @@ DestroyModuleConfig         IconMenu: *
 *IconMenu(, Icon rxvt.png, Action 'Exec urxvt &')
 *IconMenu(, Icon firefox_22x22.png, Action 'Exec firefox &')
 *IconMenu(, Icon claws-mail.png, Action 'Exec claws-mail &')
+*IconMenu(, Icon libreoffice-calc.png, Action 'Exec libreoffice &')
+*IconMenu(, Icon virtualbox.png, Action 'Exec virtualbox &')
 
 
 ####wmCalClock####
@@ -190,7 +193,7 @@ key 7 A M           GoToPage 0 2
 key 8 A M           GoToPage 1 2
 key 9 A M           GoToPage 2 2
 key t A M			Exec exec urxvt
-key b A M			Exec exec surf www.duckduckgo.com
+key b A M			Exec exec surf file:///home/lyncir/urls.html
 key p A M			Exec exec scrot /tmp/%Y-%m-%d-%T-screenshot.png
 key Escape A M		Close
 key i A M			Iconify
