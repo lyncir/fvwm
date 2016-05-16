@@ -48,7 +48,7 @@ AddToFunc 			StartFunction
 + I Exec			exec fcitx
 + I Exec			exec xcompmgr
 + I Exec			exec claws-mail
-+ I Exec			exec setxkbmap -option "ctrl:swapcaps"
++ I Exec			exec setxkbmap -option "ctrl:swapcaps,altwin:swap_alt_win"
 
 *FvwmPagerLabel		0 Desktop
 *FvwmPager:			Geometry +1720+950
