@@ -73,6 +73,7 @@ DestroyModuleConfig         IconMenu: *
 *IconMenu(, Icon claws-mail.png, Action 'Exec claws-mail &')
 *IconMenu(, Icon libreoffice-calc.png, Action 'Exec libreoffice &')
 *IconMenu(, Icon virtualbox.png, Action 'Exec virtualbox &')
+*IconMenu(, Icon keepassx.png, Action 'Exec keepass2 &')
 
 
 ####wmCalClock####
@@ -151,7 +152,7 @@ Style "*" 				BorderWidth 0, HandleWidth 2
 Style "*" 				MWMBorder, FirmBorder
 Style "*" 				Colorset 4
 Style "*" 				HilightColorset 3
-Style "*" 				BorderColorset 4
+Style "*" 				BorderColorset 5
 Style "*" 				HilightBorderColorset 5
 Style "*"				FocusFollowsMouse
 Style "*"				TileCascadePlacement
@@ -176,7 +177,7 @@ AddToFunc			Maximize-Func2
 Key Tab A M WindowList Root c c CurrentAtEnd, IconifiedAtEnd
 
 ####shutkey####
-Key z W	CM			Move 0 0
+Key z W	CM			Move 0p 20p
 Key r A	CM			Restart
 Key l A CM			Exec exec slock
 key h W CM			TopHalfMix
@@ -194,7 +195,7 @@ key 8 A M           GoToPage 1 2
 key 9 A M           GoToPage 2 2
 key t A M			Exec exec urxvt
 key b A M			Exec exec surf file:///home/lyncir/urls.html
-key p A M			Exec exec scrot /tmp/%Y-%m-%d-%T-screenshot.png
+key p A M			Exec exec scrot '%Y-%m-%d-%T-screenshot.png' -e 'mv $f ~/virtualbox/tmp/'
 key Escape A M		Close
 key i A M			Iconify
 
