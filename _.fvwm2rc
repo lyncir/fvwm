@@ -75,7 +75,9 @@ DestroyModuleConfig         IconMenu: *
 *IconMenu(, Icon libreoffice-calc.png, Action 'Exec libreoffice &')
 *IconMenu(, Icon virtualbox.png, Action 'Exec virtualbox &')
 *IconMenu(, Icon keepassx.png, Action 'Exec keepassx &')
-*IconMenu(, Icon MySQLWorkbench-22.png, Action 'Exec mysql-workbench &')
+*IconMenu(, Icon DBeaver_24x24.png, Action 'Exec  dbeaver &')
+*IconMenu(, Icon dingtalk_24x24.png, Action 'Exec dingtalk &')
+*IconMenu(, Icon Medis_24x24.png, Action 'Exec cd $HOME/Repos/medis; npm start &')
 
 
 ####wmCalClock####
@@ -165,6 +167,7 @@ Style "Desktop"			NoTitle,WindowListSkip,Sticky,HandleWidth 0
 Style "wmCalClock"		Notitle,WindowListSkip
 Style "URxvt"			Icon xterm-terminal_48x48.png
 Style "trayer"			!Title, !Borders, Sticky
+Style "dingtalk"		!Title
 
 ##widows close,max,mini##
 Mouse 1 4	A		Iconify
@@ -197,7 +200,7 @@ key 8 A M           GoToPage 1 2
 key 9 A M           GoToPage 2 2
 key t A M			Exec exec urxvt
 key b A M			Exec exec surf file:///home/lyncir/urls.html
-key p A M			Exec exec scrot '%Y-%m-%d-%T-screenshot.png' -e 'mv $f ~/virtualbox/tmp/'
+key p A M			Exec exec scrot '%Y-%m-%d-%T-screenshot.png' -e 'mv $f ~/Shares/'
 key Escape A M		Close
 key i A M			Iconify
 
